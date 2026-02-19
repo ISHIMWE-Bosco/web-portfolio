@@ -49,10 +49,15 @@ export default function Portfolio() {
     : projects.filter(p => p.category === selectedCategory);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-12 py-20">
+    <section className="min-h-screen flex flex-col items-center justify-center px-12 py-20 bg-[#20252b]">
       <div className="max-w-6xl w-full">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">My Work</h1>
-        <p className="text-center text-gray-400 mb-12">Showcasing my latest projects and designs</p>
+        <div className="relative mb-12 text-center">
+          <p className="pointer-events-none absolute inset-x-0 -top-10 select-none text-6xl md:text-8xl font-black tracking-[0.2em] text-gray-500/10 uppercase">
+            PORTFOLIO
+          </p>
+          <h1 className="relative text-3xl md:text-4xl font-bold text-white">My Work</h1>
+          <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-[#1bc38b]" />
+        </div>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (

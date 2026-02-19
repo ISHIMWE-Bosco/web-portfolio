@@ -1,4 +1,5 @@
-import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Github } from 'lucide-react';
+import { useState } from 'react';
 import { Section } from '../App';
 
 interface SidebarProps {
@@ -17,17 +18,28 @@ const navigationItems: { label: string; id: Section }[] = [
 ];
 
 export default function Sidebar({ activeSection, onNavigate }: SidebarProps) {
+  const [imageFailed, setImageFailed] = useState(false);
+
   return (
-    <aside className="w-[320px] min-w-[320px] bg-[#191c21] flex flex-col items-center py-9 px-8 border-r border-gray-800">
-      <div className="w-48 h-48 mb-8 rounded-full overflow-hidden border-4 border-[#1bc38b]">
-        <img
-          src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt="Bosco Ishimwe"
-          className="w-full h-full object-cover"
-        />
+    <aside className="sticky top-0 h-screen w-[280px] min-w-[280px] shrink-0 overflow-y-auto bg-[#191c21] flex flex-col items-center pt-16 pb-10 px-6 border-r border-gray-800">
+      <div className="mb-10 rounded-full bg-[#1bc38b] p-1">
+        <div className="h-52 w-52 overflow-hidden rounded-full bg-[#22252b]">
+          {imageFailed ? (
+            <div className="flex h-full w-full items-center justify-center text-4xl font-bold text-[#1bc38b]">
+              BI
+            </div>
+          ) : (
+            <img
+              src="/Profile.JPG"
+              alt="Bosco Ishimwe"
+              className="block h-full w-full rounded-full object-cover object-center"
+              onError={() => setImageFailed(true)}
+            />
+          )}
+        </div>
       </div>
 
-      <h2 className="font-bold text-white text-2xl mb-16 text-center">
+      <h2 className="font-bold text-white text-2xl mb-14 text-center">
         Bosco Ishimwe
       </h2>
 
@@ -47,7 +59,8 @@ export default function Sidebar({ activeSection, onNavigate }: SidebarProps) {
         ))}
       </nav>
 
-      <div className="flex gap-5 mt-auto">
+      <div className="mt-14 w-full border-t border-gray-800 pt-8">
+        <div className="flex justify-center gap-5">
         <a
           href="https://facebook.com"
           target="_blank"
@@ -65,7 +78,7 @@ export default function Sidebar({ activeSection, onNavigate }: SidebarProps) {
           <Twitter size={20} />
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/ishimwe-bosco-110974285/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-400 hover:text-[#1bc38b] transition-colors"
@@ -73,14 +86,18 @@ export default function Sidebar({ activeSection, onNavigate }: SidebarProps) {
           <Linkedin size={20} />
         </a>
         <a
-          href="https://instagram.com"
+          href="https://github.com/ISHIMWE-Bosco"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-400 hover:text-[#1bc38b] transition-colors"
         >
-          <Instagram size={20} />
+          <Github size={20} />
         </a>
+        </div>
       </div>
     </aside>
   );
 }
+
+
+

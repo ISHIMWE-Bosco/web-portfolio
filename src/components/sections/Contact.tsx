@@ -28,10 +28,15 @@ export default function Contact() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-12 py-20">
+    <section className="min-h-screen flex flex-col items-center justify-center px-12 py-20 bg-[#20252b]">
       <div className="max-w-5xl w-full">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">Get in Touch</h1>
-        <p className="text-center text-gray-400 mb-16">I'd love to hear from you. Let's work together</p>
+        <div className="relative mb-16 text-center">
+          <p className="pointer-events-none absolute inset-x-0 -top-10 select-none text-6xl md:text-8xl font-black tracking-[0.2em] text-gray-500/10 uppercase">
+            CONTACT
+          </p>
+          <h1 className="relative text-3xl md:text-4xl font-bold text-white">Get in Touch</h1>
+          <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-[#1bc38b]" />
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="bg-[#22252b] p-8 rounded-lg border border-gray-800 text-center hover:border-[#1bc38b] transition-all duration-300">

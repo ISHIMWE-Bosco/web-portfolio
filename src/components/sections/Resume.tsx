@@ -2,41 +2,47 @@ import { Download } from 'lucide-react';
 
 const education = [
   {
-    degree: 'Computer Science',
-    school: 'Kigali Institute of Science',
-    year: '2019-2023',
-    details: 'Bachelor of Science in Computer Science with focus on software engineering and web technologies'
+    degree: 'Software Engineering',
+    school: 'African Leadership University',
+    year: '2023-2026',
+    details: 'Focused on software engineering principles, modern development practices, and building scalable digital products.'
   },
 ];
 
 const experience = [
   {
-    title: 'Computer Science',
-    company: 'TechCorp Solutions',
-    year: '2023-Present',
-    details: 'Leading software development projects, mentoring junior developers, and architecting scalable solutions.'
+    title: 'Internship',
+    company: 'TostGroup',
+    year: '2023-2025',
+    details: 'Contributed to real-world projects, supported development teams, and gained hands-on industry experience.'
+  },
+  {
+    title: 'Apprenticeship',
+    company: 'The Gym Rwanda',
+    year: '2023-2025',
+    details: 'Built practical skills through guided training, collaboration, and continuous project-based learning.'
   },
 ];
 
 const skills = [
-  { name: 'Web Design', level: 90 },
+  { name: 'Web Design', level: 70 },
   { name: 'React JS', level: 85 },
-  { name: 'HTML/CSS', level: 95 },
+  { name: 'HTML/CSS', level: 65 },
   { name: 'Angular JS', label: 'Angular JS', level: 80 },
-  { name: 'TypeScript', level: 85 },
-  { name: 'Bootstrap', level: 80 },
+  { name: 'TypeScript', level: 75 },
+  { name: 'Bootstrap', level: 55 },
 ];
 
 export default function Resume() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-12 py-20">
+    <section className="min-h-screen flex flex-col items-center justify-center px-12 py-20 bg-[#1b1f24]">
       <div className="max-w-5xl w-full">
-        <div className="flex items-center justify-between mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Resume</h1>
-          <button className="flex items-center gap-2 px-6 py-3 bg-[#1bc38b] hover:bg-[#15a373] text-[#191c21] font-semibold rounded-lg transition-all duration-300">
-            <Download size={20} />
-            Download CV
-          </button>
+        <div className="relative mb-12 text-center">
+          <p className="pointer-events-none absolute inset-x-0 -top-10 select-none text-6xl md:text-8xl font-black tracking-[0.2em] text-gray-500/10 uppercase">
+            SUMMARY
+          </p>
+          <h1 className="relative text-3xl md:text-4xl font-bold text-white">Resume</h1>
+          <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-[#1bc38b]" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 mb-12">
@@ -90,6 +96,11 @@ export default function Resume() {
             ))}
           </div>
         </div>
+
+        <button className="mx-auto mt-12 flex items-center gap-2 px-6 py-3 bg-[#1bc38b] hover:bg-[#15a373] text-[#191c21] font-semibold rounded-full transition-all duration-300">
+          <Download size={20} />
+          Download CV
+        </button>
       </div>
     </section>
   );

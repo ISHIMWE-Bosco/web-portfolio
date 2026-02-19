@@ -29,10 +29,15 @@ const testimonials = [
 
 export default function Testimonial() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-12 py-20">
+    <section className="min-h-screen flex flex-col items-center justify-center px-12 py-20 bg-[#1b1f24]">
       <div className="max-w-6xl w-full">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">What Clients Say</h1>
-        <p className="text-center text-gray-400 mb-16">Testimonials from satisfied clients</p>
+        <div className="relative mb-16 text-center">
+          <p className="pointer-events-none absolute inset-x-0 -top-10 select-none text-6xl md:text-8xl font-black tracking-[0.2em] text-gray-500/10 uppercase">
+            TESTIMONIAL
+          </p>
+          <h1 className="relative text-3xl md:text-4xl font-bold text-white">What Clients Say</h1>
+          <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-[#1bc38b]" />
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial) => (
