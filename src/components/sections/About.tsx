@@ -1,3 +1,5 @@
+import resumePdf from '../../assets/Bosco_Ishimwe_Software Engineering_Resume.pdf';
+
 export default function About() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-12 py-20 bg-[#1b1f24]">
@@ -33,16 +35,20 @@ export default function About() {
                 <p><span className="font-semibold text-white">Email:</span> ishimwebosco89@gmail.com</p>
               </div>
               <div className="border-b border-gray-700 pb-3 text-gray-400">
-                <p><span className="font-semibold text-white">Age:</span> 28</p>
+                <p><span className="font-semibold text-white">Age:</span> 24</p>
               </div>
               <div className="border-b border-gray-700 pb-3 text-gray-400">
                 <p><span className="font-semibold text-white">From:</span> Kigali, Rwanda</p>
               </div>
             </div>
 
-            <button className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-[#1bc38b] px-6 py-3 font-semibold text-[#191c21] transition-all duration-300 hover:bg-[#15a373]">
+            <a
+              href={resumePdf}
+              download="Bosco_Ishimwe_Resume.pdf"
+              className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-[#1bc38b] px-6 py-3 font-semibold text-[#191c21] transition-all duration-300 hover:bg-[#15a373]"
+            >
               Download CV
-            </button>
+            </a>
           </div>
         </div>
 

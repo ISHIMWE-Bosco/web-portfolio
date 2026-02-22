@@ -2,6 +2,8 @@ import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Contact() {
+  const contactEmail = 'ishimwebosco89@gmail.com';
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,6 +22,19 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+
+    const mailtoUrl = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+    const emailLink = document.createElement('a');
+    emailLink.href = mailtoUrl;
+    emailLink.target = '_blank';
+    emailLink.rel = 'noopener noreferrer';
+    emailLink.click();
+
     setSubmitted(true);
     setTimeout(() => {
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -44,7 +59,7 @@ export default function Contact() {
               <MapPin size={32} className="text-[#1bc38b]" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Address</h3>
-            <p className="text-gray-400">Kigali, Rwanda</p>
+            <p className="text-gray-400">KG 22 ST Ave, Kigali Rwanda</p>
           </div>
 
           <div className="bg-[#22252b] p-8 rounded-lg border border-gray-800 text-center hover:border-[#1bc38b] transition-all duration-300">
@@ -52,8 +67,13 @@ export default function Contact() {
               <Mail size={32} className="text-[#1bc38b]" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Email</h3>
-            <a href="mailto:bosco@example.com" className="text-[#1bc38b] hover:underline">
-              bosco@example.com
+            <a
+              href={`mailto:${contactEmail}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#1bc38b] hover:underline"
+            >
+              {contactEmail}
             </a>
           </div>
 
@@ -62,8 +82,8 @@ export default function Contact() {
               <Phone size={32} className="text-[#1bc38b]" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Phone</h3>
-            <a href="tel:+250788123456" className="text-[#1bc38b] hover:underline">
-              +250 788 123 456
+            <a href="tel:+250782828464" className="text-[#1bc38b] hover:underline">
+              +250782828464
             </a>
           </div>
         </div>

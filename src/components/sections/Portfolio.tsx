@@ -3,43 +3,63 @@ import { useState } from 'react';
 const projects = [
   {
     id: 1,
-    title: 'Portfolio',
-    category: 'Design',
-    image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'web-portfolio',
+    category: 'Frontend',
+    image: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://github.com/ISHIMWE-Bosco/web-portfolio.git',
   },
   {
     id: 2,
-    title: 'Lovers',
-    category: 'Design',
-    image: 'https://images.pexels.com/photos/3586667/pexels-photo-3586667.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'Art_tech',
+    category: 'Frontend',
+    image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://github.com/ISHIMWE-Bosco/Art_tech.git',
   },
   {
     id: 3,
-    title: 'Flowers',
-    category: 'Branding',
-    image: 'https://images.pexels.com/photos/1161259/pexels-photo-1161259.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'product-catalog-api',
+    category: 'Frontend',
+    image: 'https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://github.com/ISHIMWE-Bosco/product-catalog-api.git',
   },
   {
     id: 4,
-    title: 'Tattoo Art',
-    category: 'Branding',
-    image: 'https://images.pexels.com/photos/3597911/pexels-photo-3597911.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'gymtrack-app',
+    category: 'Backend',
+    image: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://github.com/ISHIMWE-Bosco/gymtrack-app.git',
   },
   {
     id: 5,
-    title: 'Gallery',
-    category: 'Photos',
-    image: 'https://images.pexels.com/photos/3378746/pexels-photo-3378746.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'event_locator',
+    category: 'Backend',
+    image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://github.com/ISHIMWE-Bosco/event_locator.git',
   },
   {
     id: 6,
-    title: 'Botanical',
-    category: 'Photos',
-    image: 'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'expense_tracker',
+    category: 'Backend',
+    image: 'https://images.pexels.com/photos/6693650/pexels-photo-6693650.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://github.com/ISHIMWE-Bosco/expense_tracker.git',
+  },
+  {
+    id: 7,
+    title: 'NkuAlert',
+    category: 'DevOps',
+    image: 'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://github.com/lasgedu/NkuAlert.git',
+  },
+  {
+    id: 8,
+    title: 'gymtrack-app',
+    category: 'DevOps',
+    image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    url: 'https://github.com/ISHIMWE-Bosco/gymtrack-app.git',
   },
 ];
 
-const categories = ['All', 'Design', 'Brand', 'Photos'];
+const categories = ['All', 'Frontend', 'Backend', 'DevOps'];
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -75,10 +95,13 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredProjects.map((project) => (
-            <div
+            <a
               key={project.id}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-lg cursor-pointer transform transition-all duration-300 hover:scale-105"
             >
               <img
@@ -90,7 +113,7 @@ export default function Portfolio() {
                 <h3 className="text-xl font-semibold text-white">{project.title}</h3>
                 <p className="text-[#1bc38b] text-sm">{project.category}</p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

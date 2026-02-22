@@ -1,4 +1,5 @@
 import { Download } from 'lucide-react';
+import resumePdf from '../../assets/Bosco_Ishimwe_Software Engineering_Resume.pdf';
 
 const education = [
   {
@@ -7,20 +8,26 @@ const education = [
     year: '2023-2026',
     details: 'Focused on software engineering principles, modern development practices, and building scalable digital products.'
   },
+  {
+    degree: 'Apprenticeship',
+    school: 'The Gym Rwanda',
+    year: '2024-2025',
+    details: 'Built practical skills through guided training, collaboration, and continuous project-based learning.'
+  },
 ];
 
 const experience = [
   {
     title: 'Internship',
     company: 'TostGroup',
-    year: '2023-2025',
+    year: '2023-2024',
     details: 'Contributed to real-world projects, supported development teams, and gained hands-on industry experience.'
   },
   {
-    title: 'Apprenticeship',
-    company: 'The Gym Rwanda',
-    year: '2023-2025',
-    details: 'Built practical skills through guided training, collaboration, and continuous project-based learning.'
+    title: 'Junior Developer',
+    company: 'KLab Rwanda',
+    year: '2025-2026',
+    details: 'Contributed to software development projects, collaborated with teams, and built practical experience in delivering production-ready features.'
   },
 ];
 
@@ -52,7 +59,7 @@ export default function Resume() {
             </h2>
             {education.map((edu, index) => (
               <div key={index} className="mb-8 pl-6 border-l-2 border-[#1bc38b]">
-                <p className="text-[#1bc38b] font-semibold">{edu.year}</p>
+                <p className="inline-block rounded-full bg-red-500 px-3 py-1 text-sm font-semibold text-white">{edu.year}</p>
                 <h3 className="text-xl font-bold text-white mt-2">{edu.degree}</h3>
                 <p className="text-gray-400 mb-2">{edu.school}</p>
                 <p className="text-gray-500 text-sm">{edu.details}</p>
@@ -66,7 +73,7 @@ export default function Resume() {
             </h2>
             {experience.map((exp, index) => (
               <div key={index} className="mb-8 pl-6 border-l-2 border-[#1bc38b]">
-                <p className="text-[#1bc38b] font-semibold">{exp.year}</p>
+                <p className="inline-block rounded-full bg-red-500 px-3 py-1 text-sm font-semibold text-white">{exp.year}</p>
                 <h3 className="text-xl font-bold text-white mt-2">{exp.title}</h3>
                 <p className="text-gray-400 mb-2">{exp.company}</p>
                 <p className="text-gray-500 text-sm">{exp.details}</p>
@@ -97,10 +104,14 @@ export default function Resume() {
           </div>
         </div>
 
-        <button className="mx-auto mt-12 flex items-center gap-2 px-6 py-3 bg-[#1bc38b] hover:bg-[#15a373] text-[#191c21] font-semibold rounded-full transition-all duration-300">
+        <a
+          href={resumePdf}
+          download="Bosco_Ishimwe_Resume.pdf"
+          className="mx-auto mt-12 flex w-fit items-center gap-2 px-6 py-3 bg-[#1bc38b] hover:bg-[#15a373] text-[#191c21] font-semibold rounded-full transition-all duration-300"
+        >
           <Download size={20} />
           Download CV
-        </button>
+        </a>
       </div>
     </section>
   );
